@@ -50,10 +50,13 @@ public class Main {
                 new Point(100,100),
                 new Point(140,140)
         );
+        //kwadrat
         Polygon square2 = Polygon.square(diag,style);
         System.out.println("square2: "+square2.toSvg());
         scene.addPolygon(square2);
 
+        //elipsa
+        Ellipse ellipse = new Ellipse(new Point(-50,-50),40, 30,style);
 
         System.out.println("Scena svg:");
         System.out.println(scene.toSvg());
