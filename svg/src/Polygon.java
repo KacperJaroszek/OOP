@@ -56,6 +56,6 @@ public class Polygon {
         //TODO: dodać pole style w tej klasie i zamienić atrybut style poniżej
         return "<polygon points=\""+
                 this
-                + style;
+                + "\" "+style.toSvg()+" />";
     }
 }
