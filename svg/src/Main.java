@@ -17,9 +17,9 @@ public class Main {
 
         Point[] arr = {p1, p2, p1};
         arr[2] = new Point(30, 0);
-//        p2.setX(0);
 
-        Polygon poly = new Polygon(arr);
+        Style style = new Style("red", "black", 2);
+        Polygon poly = new Polygon(arr, style);
         System.out.println(poly);
         Polygon polyCopy = new Polygon(poly);
         System.out.println(polyCopy);
