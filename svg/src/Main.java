@@ -2,8 +2,6 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //TODO: Utworzyć obiekt Style i przypisać do utworzonych polygonów (referencja)
-        //TODO: zmienić style w main i zaobserwować zmianę we wszystkich wielokątach
         Point p1 = new Point(30 ,40);
         Point p2 = new Point();
         p2.setY(40);
@@ -32,8 +30,8 @@ public class Main {
 
 
         SvgScene scene = new SvgScene();
-        scene.addPolygon(poly);
-        scene.addPolygon(polyCopy);
+        scene.addShape(poly);
+        scene.addShape(polyCopy);
         polyCopy.setPoint(0, -50, -50);
         polyCopy.setPoint(1, 0, 0);
         polyCopy.setPoint(2, -100, -30);
@@ -44,7 +42,7 @@ public class Main {
                 new Point(130, 130),
                 new Point(70, 130)
         });
-        scene.addPolygon(square);
+        scene.addShape(square);
 
         Segment diag = new Segment(
                 new Point(100,100),
@@ -53,7 +51,7 @@ public class Main {
         //kwadrat
         Polygon square2 = Polygon.square(diag,style);
         System.out.println("square2: "+square2.toSvg());
-        scene.addPolygon(square2);
+        scene.addShape(square2);
 
         //elipsa
         Ellipse ellipse = new Ellipse(new Point(-50,-50),40, 30,style);

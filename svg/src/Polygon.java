@@ -34,6 +34,7 @@ public class Polygon extends Shape{
         this.vertices[ix].setY(y);
     }
 
+    @Override
     public BoundingBox boundingBox(){
         if(vertices.length == 0){
             return null;
@@ -61,8 +62,6 @@ public class Polygon extends Shape{
     }
 
     public String toSvg() {
-        //TODO: dodać klasę Style z polami fill, stroke, stroke_width
-        //TODO: dodać pole style w tej klasie i zamienić atrybut style poniżej
         return "<polygon points=\""+
                 this
                 + "\" "+style.toSvg()+" />";

@@ -3,11 +3,11 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class SvgScene {
-    private final Polygon[] polygons;
+    private final Shape[] shapes;
     private int ix;
 
     public SvgScene() {
-        this.polygons = new Polygon[3];
+        this.shape = new Shape[3];
         ix = 0;
     }
 
