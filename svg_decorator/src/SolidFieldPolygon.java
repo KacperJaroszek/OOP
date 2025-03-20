@@ -1,4 +1,4 @@
-public class SolidFieldPolygon extends Polygon{
+public class SolidFieldPolygon extends Polygon {
     private String color;
 
     public SolidFieldPolygon(Vec2[] points, String color) {
@@ -7,10 +7,9 @@ public class SolidFieldPolygon extends Polygon{
     }
 
     @Override
-    public String toSvg(String inputSvg){
-        return super.toSvg(String inputSvg.format(
+    public String toSvg(String inputSvg) {
+        return super.toSvg(String.format(
                 "fill=\"%s\" %s",
-                color, inputSvg
-        ));
+                color, inputSvg));
     }
 }
