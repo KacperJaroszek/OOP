@@ -6,4 +6,11 @@ public class SolidFieldPolygon extends Polygon{
         this.color = color;
     }
 
+    @Override
+    public String toSvg(String inputSvg){
+        return super.toSvg(String inputSvg.format(
+                "fill=\"%s\" %s",
+                color, inputSvg
+        ));
+    }
 }
