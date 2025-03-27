@@ -23,19 +23,20 @@ public class Main {
                 new Vec2(600, 260)
         });
 
-        SolidFillShapeDecorator redPentagon =
-                new SolidFillShapeDecorator(pentagon, "red");
+        SolidFilledShapeDecorator redPentagon =
+                new SolidFilledShapeDecorator(pentagon, "red");
         StrokeShapeDecorator blueStrokeRedPentagon =
                 new StrokeShapeDecorator(redPentagon, "blue", 3.0);
+        TransformationDecorator transformBlueStrokeRedPentagon = new TransformationDecorator.Builder().build(blueStrokeRedPentagon);
 
         Shape ellipse = new Ellipse(new Vec2(500, 700), 400, 100);
-        ellipse = new SolidFillShapeDecorator(ellipse, "green");
+        ellipse = new SolidFilledShapeDecorator(ellipse, "green");
         ellipse = new StrokeShapeDecorator(ellipse, "black", 5.0);
 
         SvgScene scene = new SvgScene();
         scene.addShape(triangle);
         scene.addShape(rectangle);
-        scene.addShape(blueStrokeRedPentagon);
+        scene.addShape(transformBlueStrokeRedPentagon);
         scene.addShape(ellipse);
         scene.save("result.svg");
     }
