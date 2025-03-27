@@ -52,4 +52,9 @@ public class Person implements Comparable<Person>{
     public int compareTo(Person o) {
         return this.birth.compareTo(o.birth);
     }
+
+
+    public String getFullName() {
+        return name + ' ' + surname;
+    }
 }
