@@ -1,16 +1,8 @@
-import java.io.IOException;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         PlantUMLRunner.setJarPath("/home/student/Pobrane/plantuml-1.2025.2.jar");
-        String umlData = "Alice -> Bob : test";
-        try {
-            PlantUMLRunner.generetaDiagram(umlData, "/home/student/Pobrane/", "diagram.png");
-        } catch (IOException | InterruptedException e){
-            System.err.println(e.getMessage());
-        }
-
         try {
             List<Person> personList = Person.fromCsv("family.csv");
 
@@ -24,7 +16,20 @@ public class Main {
                     System.out.println("\t"+child.getFullName());
                 }
             }
-        } catch (AmbiguousPersonException e) {
+
+            String umlData = Person.umlFromList(family,
+                    uml -> uml.replaceFirst("\\{", "#yellow {"),
+                    p -> Person.selectDeceased(family).contains(p) || Person.selectOldestAlive(family) == p);
+            System.out.println(umlData);
+            PlantUMLRunner.generateDiagram(umlData,
+                    "/home/student/Pobrane/", "diagram.png");
+
+            System.out.println(Person.selectName(family, "anna"));
+            System.out.println(Person.sortedByBirth(family));
+            System.out.println(Person.selectDeceased(family));
+            System.out.println(Person.selectOldestAlive(family));
+
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
 
