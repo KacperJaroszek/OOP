@@ -195,6 +195,7 @@ public class Person implements Comparable<Person>, Serializable{
         }
 
         return umlData.toString();
+
     }
 
     public static List<Person> selectName(List<Person> from, String name){
