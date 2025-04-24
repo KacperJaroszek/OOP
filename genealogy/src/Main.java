@@ -20,6 +20,7 @@ public class Main {
             String umlData = Person.umlFromList(family,
                     uml -> uml.replaceFirst("\\{", "#yellow {"),
                     p -> Person.selectDeceased(family).contains(p) || Person.selectOldestAlive(family) == p);
+
             System.out.println(umlData);
             PlantUMLRunner.generateDiagram(umlData,
                     "/home/student/Pobrane/", "diagram.png");
